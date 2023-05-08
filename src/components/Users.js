@@ -1,12 +1,22 @@
 import React from 'react';
 
-const Users = () => {
+const Users = ({ users }) => {
     return (
         <div>
-            <div>Name</div>
-            <div>UserName</div>
-            <button className="button muted-button">Edit</button>
-            <button className="button muted-button">Delete</button>
+            {users.length > 0 ?
+            (
+                <div>{users.map(user =>
+                    <div key={user.id}>
+                        <div>{user.name}</div>
+                        <div>{user.username}</div>
+                        <button class="bg-blue-500 mr-5">edit </button>
+                        <button class="bg-blue-500 mr-5">delete</button>
+                    </div>)}
+                </div>
+            ) :
+                <div>there is no user !</div>
+            }
+
         </div>
     );
 }
