@@ -10,10 +10,13 @@ function App() {
     { id: uuidv4(), name: 'Ben', username: 'benisphere' },
   ]
   const [users, setUsers] = useState(usersData)
-  
+
   const addUser = (user) => {
     setUsers([...users, user])
-
+  }
+  const deleteUser = (id) => {
+    const newUsers = users.filter(user => user.id !== id);
+    setUsers(newUsers)
   }
 
   return (
@@ -26,7 +29,7 @@ function App() {
         </div>
         <div >
           <h2>View users</h2>
-          <Users users={users} />
+          <Users users={users} deleteUser={deleteUser} />
         </div>
       </div>
     </div>
