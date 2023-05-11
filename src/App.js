@@ -33,12 +33,11 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>CRUD App with Hooks</h1>
-      <div >
+    <div >
+      <h1 className='text-center text-blue-700 text-2xl font-bold my-5'>CRUD App with Hooks</h1>
+      <div className='flex justify-center m-5 bg-slate-100'>
         {editing ? (
           <div>
-            <h2>Edit user</h2>
             <EditUser
               setEditing={setEditing}
               currentUser={currentUser}
@@ -46,32 +45,15 @@ function App() {
             />
           </div>
         ) : (
-          <div>
-            <h2>Add user</h2>
-            <AddUser addUser={addUser} />
-            <h2>View users</h2>
+          <div >
             <Users
               users={users}
               deleteUser={deleteUser}
               editRow={editRow} />
+            <AddUser addUser={addUser} />
           </div>
+
         )}
-        {/* <div >
-          <h2>Add user</h2>
-          <AddUser addUser={addUser} />
-          <EditUser
-            setEditing={setEditing}
-            currentUser={currentUser}
-            updateUser={updateUser}
-          />
-        </div>
-        <div >
-          <h2>View users</h2>
-          <Users
-            users={users}
-            deleteUser={deleteUser}
-            editRow={editRow} />
-        </div> */}
       </div>
     </div>
   );
