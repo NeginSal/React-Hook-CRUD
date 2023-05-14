@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 const EditUser = ({ updateUser, currentUser, setEditing }) => {
     const [user, setUser] = useState(currentUser)
 
-    useEffect(() => {
-        setUser(currentUser)
-      }, [currentUser])
-
     const handleOnChange = (e) => {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value })
