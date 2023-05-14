@@ -34,12 +34,6 @@ function App() {
 
   return (
     <div >
-      {/* <h1 className='text-center text-blue-700 text-2xl font-bold my-5'>
-        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-          <span class="relative text-white mx-2"> CRUD App </span>
-        </span>
-          with React Hooks
-      </h1> */}
       <blockquote className="text-2xl font-semibold italic text-center text-blue-700 my-10">
         <span className="mx-1 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-400 relative inline-block">
           <span className="relative text-white "> CRUD App </span>
