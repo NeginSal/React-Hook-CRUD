@@ -1,0 +1,19 @@
+{
+  "users":[
+    {
+      "name":"Negin",
+      "username":"negin007",
+      "id":1
+    },
+    {
+      "name":"Craig",
+      "username":"benisphere",
+      "id":1
+    },
+    {
+      "name":"Ben",
+      "username":"siliconeidolon",
+      "id":1
+    }
+  ]
+}
