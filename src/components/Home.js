@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import UserList from "./UserList";
+import AddUser from "./AddUser";
 
 
 const Home = () => {
@@ -20,14 +21,19 @@ const Home = () => {
     const newUser = users.filter((user) => user.id !== id);
     setUsers(newUser);
   }
+  
+  const addUser = (user)=>{
+    setUsers([...users,user]) 
+  }
 
   return (
-    <div className='flex justify-center my-10 mx-64 bg-slate-100'>
+    <div className=''>
       <UserList
         users={users}
         loading={loading}
         deleteUser={deleteUser}
       />
+      <AddUser addUser={addUser}/>
     </div>
   );
 }
