@@ -1,18 +1,33 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import UserList from "./UserList";
 
 
 const Home = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true)
+    axios.get("http://localhost:8000/users")
+      .then(response => {
+        setUsers(response.data)
+      })
+    setLoading(false)
+  }, [])
+
+  const deleteUser = (id) => {
+    const newUser = users.filter((user) => user.id !== id);
+    setUsers(newUser);
+  }
+
   return (
-    <div>
-      <blockquote className="text-2xl font-semibold italic text-center text-blue-900 my-10">
-        <span className="mx-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-400 relative inline-block">
-          <span className="relative text-white "> CRUD App </span>
-        </span>
-        with React Hooks
-      </blockquote>
-      <div className='flex justify-center my-10 mx-64 bg-slate-100'>
-        <UserList />
-      </div>
+    <div className='flex justify-center my-10 mx-64 bg-slate-100'>
+      <UserList
+        users={users}
+        loading={loading}
+        deleteUser={deleteUser}
+      />
     </div>
   );
 }

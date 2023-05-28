@@ -1,18 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 
-const UserList = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true)
-    axios.get("http://localhost:8000/users")
-      .then(response => {
-        setUsers(response.data)
-      })
-    setLoading(false)
-  }, [])
+const UserList = ({ users, loading, deleteUser }) => {
 
   return (
     <div className='py-5'>
@@ -33,7 +20,7 @@ const UserList = () => {
                   <button
                     className='mx-5 my-3 px-5 py-1 text-red-800
                         hover:bg-red-400 hover:rounded-md hover:border hover:border-red-800'
-                  // onClick={() => deleteUser(user.id)}
+                    onClick={() => deleteUser(user.id)}
                   >Delete</button>
                 </li>
               </ul>
