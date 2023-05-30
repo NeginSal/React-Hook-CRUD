@@ -27,14 +27,14 @@ const Home = () => {
   }
 
   return (
-    <div className=''>
+    <>
       <UserList
         users={users}
         loading={loading}
         deleteUser={deleteUser}
       />
-      <AddUser addUser={addUser}/>
-    </div>
+      <AddUser addUser={addUser} />
+    </>
   );
 }
 
