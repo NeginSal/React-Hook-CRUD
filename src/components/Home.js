@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import UserList from "./UserList";
 import AddUser from "./AddUser";
 
-
 const Home = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,23 +17,27 @@ const Home = () => {
   }, [])
 
   const deleteUser = (id) => {
-    const newUser = users.filter((user) => user.id !== id);
-    setUsers(newUser);
-  }
-  
-  const addUser = (user)=>{
-    setUsers([...users,user]) 
+    axios.delete(`http://localhost:8000/users/${id}`).then((response) => {
+      const newUser = users.filter((user) => user.id !== id);
+      console.log(response)
+      setUsers(newUser);
+    }).catch(error => {
+      console.log(error)
+    });
   }
 
   return (
-    <>
+    <div className="max-w-xl pb-8 mx-auto px-5 bg-slate-100">
       <UserList
         users={users}
         loading={loading}
         deleteUser={deleteUser}
       />
-      <AddUser addUser={addUser} />
-    </>
+      <AddUser
+        users={users}
+        setUsers={setUsers}
+      />
+    </div>
   );
 }
 
