@@ -33,7 +33,7 @@ const AddUser = ({ setUsers, users }) => {
 					</div>
 					<div className='mb-2'>
 						<button className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded-full">
-							Button
+							Add
 						</button>
 					</div>
 				</div>
