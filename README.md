@@ -30,4 +30,4 @@ open a new terminal and run this command to start json-server.
 
 ## Learn More :open_book:
 
-You can learn more about this project in this link [](...).
+You can learn more about this project in this link [Crud-react-app with json-server and axios](https://dev.to/negin/crud-react-app-with-json-server-and-axios-142c).
